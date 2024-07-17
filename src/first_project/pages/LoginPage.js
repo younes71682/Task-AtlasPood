@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { MdVisibility } from "react-icons/md";
 import { MdVisibilityOff } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from './Redux/AuthSlice';
+import { login } from '../Redux/AuthSlice';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
@@ -24,7 +24,7 @@ const LoginPage = () => {
 
 
     const dispatch = useDispatch()
-    const handleLogin = async (data) => {
+    const handleLogin = (data) => {
         dispatch(login(data))
         reset()
     }
@@ -32,11 +32,7 @@ const LoginPage = () => {
 
     const navigate = useNavigate()
     const isLogin = useSelector((state) => state.AUTH.isLogin)
-    useEffect(() => {
-        if (isLogin) {
-            navigate('/Product1')
-        }
-    }, [isLogin, navigate])
+
 
     return (
         <div style={{ backgroundImage: 'url("/first_project/HomeImage.jpg")' }} className='bg-fixed bg-cover  h-[100vh] flex justify-center items-center '>
@@ -59,7 +55,7 @@ const LoginPage = () => {
                             {errors.password?.type === 'pattern' && <p className='text-red-700 text-xs'>رمز عبور فقط شامل عدد میباشد</p>}
                             {errors.password?.type === 'minLength' && <p className='text-red-700 text-xs'>رمز عبور باید حداقل 8 رقم باشد</p>}
                         </div>
-                        <button className={`flex justify-center items-center mt-2 bg-[rgba(111,66,193,1)] text-white text-lg rounded-lg mx-14 h-[43px] outline-0 hover:shadow-[0_0px_10px_0px_rgba(111,66,193,1)] focus:shadow-[0_0px_10px_0px_rgba(111,66,193,1)] `}>
+                        <button onClick={isLogin ? navigate('/Product1') : null} className={`flex justify-center items-center mt-2 bg-[rgba(111,66,193,1)] text-white text-lg rounded-lg mx-14 h-[43px] outline-0 hover:shadow-[0_0px_10px_0px_rgba(111,66,193,1)] focus:shadow-[0_0px_10px_0px_rgba(111,66,193,1)] `}>
                             ورود
                         </button>
                     </form>
@@ -70,3 +66,9 @@ const LoginPage = () => {
 }
 
 export default LoginPage
+// useEffect(() => {
+//     if (isLogin) {
+//         navigate('/Product1')
+//     }
+// }, [isLogin, navigate])
+ 

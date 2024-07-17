@@ -1,9 +1,12 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import LanPage from './LanPage'
 import Store from './Redux/Store'
-import LoginPage from './LoginPage'
+import LoginPage from './pages/LoginPage'
+import LanPage from './pages/LanPage'
+
+
+
 const Main = () => {
     return (
         <div>
@@ -11,12 +14,11 @@ const Main = () => {
                 <Router>
                     <Routes>
                         <Route path='/' element={<LoginPage />} />
-                        <Route path='/product1' element={<LanPage/>} />
+                        <Route path='/product1' element={<LanPage />} />
                     </Routes>
                 </Router>
             </Provider>
         </div>
     )
 }
-// ()=> isLogin ? <LanPage/> : <Redirect to="/"/>
 export default Main

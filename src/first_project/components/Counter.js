@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrease, increase } from './Redux/CounterSlice'
+import { decrease, increase } from '../Redux/CounterSlice';
 import { HiMinusSmall } from "react-icons/hi2";
 import { HiMiniPlus } from "react-icons/hi2";
 

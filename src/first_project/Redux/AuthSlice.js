@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LoginError, LoginSuccess } from "../ConditionLohin";
-import { ToastContainer } from "react-toastify";
+import { LoginError, LoginSuccess } from "../components/ConditionLohin";
 
 export const authSlice = createSlice({
     name: "auth",
@@ -16,12 +15,12 @@ export const authSlice = createSlice({
             const { username, password } = action.payload;
 
             if (state.user.username === username && state.user.password === password) {
-                LoginSuccess(username);
-
                 state.isLogin = true;
+                LoginSuccess(username);
             } else {
-                LoginError();
                 state.isLogin = false;
+                LoginError();
+
             }
         }
     }

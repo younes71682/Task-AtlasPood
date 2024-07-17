@@ -4,7 +4,7 @@ export const LoginSuccess = (props) => {
     const { username } = props
     toast.success(
         <div className="flex gap-1 justify-end ">
-            <p>خوش آمدید</p>
+            <p>!خوش آمدید</p>
             <p>{username}</p>
         </div>
         , {

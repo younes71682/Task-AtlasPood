@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
-import { Product1 } from './Product1';
 import { TbRulerMeasure } from "react-icons/tb";
-import According from './According'
-import Counter from './Counter';
 import { useSelector } from 'react-redux';
-const LanPage = () => {
+import { Product1 } from '../components/Product1';
+import Counter from '../components/Counter';
+import According from '../components/According';
+import { ToastContainer } from 'react-toastify';
 
+
+const LanPage = () => {
 
   const [selectedImage, setSelectedImage] = useState(Product1.images[0].img);
   const [selectedColor, setSelectedColor] = useState(Product1.colors[0].colorname);
 
-  const handleImageClick = (IMAGE, ID) => {
+  const handleImageClick = (IMAGE) => {
     setSelectedImage(IMAGE);
   };
 
@@ -27,8 +29,8 @@ const LanPage = () => {
 
   return (
     <div className='flex justify-center items-center'>
+      <ToastContainer className="text-right" /> 
       <div className='flex gap-8 w-[95%] py-10'>
-
         <div className='flex w-[49%] gap-4'>
 
           <div className='flex flex-col  gap-3'>
@@ -44,7 +46,6 @@ const LanPage = () => {
             <img src={selectedImage} className='w-full h-full' />
           </div>
         </div>
-
 
 
 
@@ -76,13 +77,15 @@ const LanPage = () => {
               </div>
             </div>
 
+
             <div className='flex flex-col gap-1'>
               <h3>Size:</h3>
               <div className='flex flex-wrap gap-2'>
                 {Product1.sizes.map((i) => {
                   return (
-                    <div key={i.idsiz} className={`flex justify-center items-center w-[140px] ${i.inventory === true ? 'border-2 border-[#484848] cursor-pointer' : 'border-2 border-gray-300 line-through  text-gray-300'}`}>
+                    <div key={i.idsiz} className={`flex justify-center items-center w-[140px] border-2 ${i.inventory ? ' border-black cursor-pointer' : 'border-gray-300 text-gray-300'}`}>
                       <p>{i.size}</p>
+                      {!i.inventory && <div className='border-solid border border-gray-300 rounded-full -rotate-[80deg] h-[140px] absolute' />}
                     </div>
                   )
                 })}
@@ -107,6 +110,7 @@ const LanPage = () => {
             </div>
 
             <Counter />
+
             <div className='flex flex-col gap-3'>
               <div className='flex justify-center items-center bg-[#868580] h-[40px] cursor-pointer hover:bg-[#757575]'>
                 <p className='text-white'>ADD TO BAG</p>
