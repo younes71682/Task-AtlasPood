@@ -7,6 +7,11 @@
   src: url('./first_project/assets/fonts/ProximaNova-Regular.ttf');
 }
 
+@font-face {
+  font-family: "Yekan";
+  src: url('./first_project/assets/fonts/Yekan.ttf');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { Product1 } from '../components/Product1';
 import Counter from '../components/Counter';
 import According from '../components/According';
-import { ToastContainer } from 'react-toastify';
 
 
 const LanPage = () => {
@@ -29,7 +28,6 @@ const LanPage = () => {
 
   return (
     <div className='flex justify-center items-center'>
-      <ToastContainer className="text-right" /> 
       <div className='flex gap-8 w-[95%] py-10'>
         <div className='flex w-[49%] gap-4'>
 

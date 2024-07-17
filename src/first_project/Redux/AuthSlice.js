@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LoginError, LoginSuccess } from "../components/ConditionLohin";
+import { LoginError, LoginSuccess } from "../components/ConditionLogin";
 
 export const authSlice = createSlice({
     name: "auth",

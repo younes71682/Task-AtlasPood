@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Store from './Redux/Store'
 import LoginPage from './pages/LoginPage'
 import LanPage from './pages/LanPage'
-
+ 
 
 
 const Main = () => {

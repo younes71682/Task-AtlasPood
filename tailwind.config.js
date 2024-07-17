@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Proximanova: ["proximanova-nova", 'sans-serif'],
+        Yekan: ["Yekan", 'sans-serif'],
       }
     },
   },
