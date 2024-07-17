@@ -6,15 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../Redux/AuthSlice';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { LoginError, LoginSuccess } from '../components/ConditionLogin';
-
 
 
 const LoginPage = () => {
 
 
     const form = useForm()
-    const { register, handleSubmit, formState, reset, watch } = form
+    const { register, handleSubmit, formState, reset } = form
     const { errors, isValid } = formState
 
     const [passwordShown, setPasswordShown] = useState(false);
@@ -32,13 +30,11 @@ const LoginPage = () => {
     const isLogin = useSelector((state) => state.AUTH.isLogin)
 
 
-    useEffect(() => {
-        if (isLogin) {
-            setTimeout(() => {
-                navigate('/Product1')
-            }, 1000);
-        }
-    }, [isLogin, navigate])
+    // useEffect(() => {
+    //     if (isLogin) {
+    //         navigate('/Product1')
+    //     }
+    // }, [isLogin, navigate])
 
     return (
         <div style={{ backgroundImage: 'url("/first_project/HomeImage.jpg")' }} className='bg-fixed bg-cover  h-[100vh] flex justify-center items-center '>
@@ -61,7 +57,7 @@ const LoginPage = () => {
                             {errors.password?.type === 'pattern' && <p className='text-red-700 text-xs font-Yekan'>رمز عبور فقط شامل عدد میباشد</p>}
                             {errors.password?.type === 'minLength' && <p className='text-red-700 text-xs font-Yekan'>رمز عبور باید حداقل 8 رقم باشد</p>}
                         </div>
-                        <button type='submit' disabled={!isValid} className={`${!isValid ? 'bg-[rgba(189,195,199,1)] text-[#484848]' : ' bg-[rgba(111,66,193,1)] text-white hover:shadow-[0_0px_10px_0px_rgba(111,66,193,1)] focus:shadow-[0_0px_10px_0px_rgba(111,66,193,1)] '} font-Yekan flex justify-center items-center mt-2 text-lg rounded-lg mx-14 h-[43px] outline-0  `}>
+                        <button disabled={!isValid} onClick={isLogin ? navigate('/Product1') : null} className={`${!isValid ? 'bg-[rgba(189,195,199,1)] text-[#484848]' : ' bg-[rgba(111,66,193,1)] text-white hover:shadow-[0_0px_10px_0px_rgba(111,66,193,1)] focus:shadow-[0_0px_10px_0px_rgba(111,66,193,1)] '} font-Yekan flex justify-center items-center mt-2 text-lg rounded-lg mx-14 h-[43px] outline-0  `}>
                             ورود
                         </button>
                     </form>

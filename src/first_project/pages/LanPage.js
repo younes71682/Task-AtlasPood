@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Product1 } from '../components/Product1';
 import Counter from '../components/Counter';
 import According from '../components/According';
+import { ToastContainer } from 'react-toastify';
 
 
 const LanPage = () => {
@@ -25,6 +26,7 @@ const LanPage = () => {
   const total = price * quantity
   const totalPrice = total.toLocaleString();
 
+  console.log(useSelector((state) => state.AUTH.isLogin))
 
   return (
     <div className='flex justify-center items-center'>
@@ -35,13 +37,13 @@ const LanPage = () => {
             {Product1.images.map((i) => {
               return (
                 <div key={i.idimg} className='w-[105px] h-[105px] cursor-pointer '>
-                  <img src={i.img} className={` w-full  ${selectedImage === i.img ? 'opacity-[0.5]' : null}`} onClick={() => handleImageClick(i.img)} />
+                  <img src={i.img} alt={i.alt} className={` w-full  ${selectedImage === i.img ? 'opacity-[0.5]' : null}`} onClick={() => handleImageClick(i.img)} />
                 </div>
               )
             })}
           </div>
           <div className='w-[585px] h-[585px] '>
-            <img src={selectedImage} className='w-full h-full' />
+            <img src={selectedImage} alt='laragimag' className='w-full h-full' />
           </div>
         </div>
 
@@ -68,7 +70,7 @@ const LanPage = () => {
                 {Product1.colors.map((i) => {
                   return (
                     <div key={i.idimac} className={`flex justify-center items-center cursor-pointer p-1 ${selectedColor === i.colorname ? 'border-2 border-black' : 'border-2 border-[#FBFBFB]'}`} onClick={() => handleColorClick(i.colorname)}>
-                      <img src={i.imgc} className='w-[50px] h-[50px]' />
+                      <img src={i.imgc} alt={i.alt} className='w-[50px] h-[50px]' />
                     </div>
                   )
                 })}
