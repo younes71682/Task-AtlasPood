@@ -5,7 +5,6 @@ import { MdVisibilityOff } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../Redux/AuthSlice';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 
 const LoginPage = () => {
@@ -30,15 +29,9 @@ const LoginPage = () => {
     const isLogin = useSelector((state) => state.AUTH.isLogin)
 
 
-    // useEffect(() => {
-    //     if (isLogin) {
-    //         navigate('/Product1')
-    //     }
-    // }, [isLogin, navigate])
 
     return (
-        <div style={{ backgroundImage: 'url("/first_project/HomeImage.jpg")' }} className='bg-fixed bg-cover  h-[100vh] flex justify-center items-center '>
-            <ToastContainer className="text-right" />
+        <div style={{ backgroundImage: 'url("/first_project/images/HomeImage.jpg")' }} className='bg-fixed bg-cover  h-[100vh] flex justify-center items-center '>
             <div className=' shadow-[0px_0px_30px_0px_rgb(31,38,135,0.37)] backdrop-blur-[8px] w-[55%] h-[380px] rounded-3xl flex items-center justify-center'>
                 <div className='flex flex-col items-center justify-between h-[260px]'>
                     <h1 className='text-2xl font-Yekan'>ورود کاربر</h1>

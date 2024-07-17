@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Store from './Redux/Store'
 import LoginPage from './pages/LoginPage'
 import LanPage from './pages/LanPage'
- 
+import { ToastContainer } from 'react-toastify'
+
 
 
 const Main = () => {
@@ -12,6 +13,7 @@ const Main = () => {
         <div>
             <Provider store={Store}>
                 <Router>
+                    <ToastContainer className="text-right" />
                     <Routes>
                         <Route path='/' element={<LoginPage />} />
                         <Route path='/product1' element={<LanPage />} />

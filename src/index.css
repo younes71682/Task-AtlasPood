@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: "proximanova-nova";
-  src: url('./first_project/assets/fonts/ProximaNova-Regular.ttf');
+  src: url('/public/first_project/fonts/ProximaNova-Regular.ttf');
 }
 
 @font-face {
   font-family: "Yekan";
-  src: url('./first_project/assets/fonts/Yekan.ttf');
+  src: url('/public/first_project/fonts/Yekan.ttf');
 }
 
 body {

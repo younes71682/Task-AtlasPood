@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { Product1 } from '../components/Product1';
 import Counter from '../components/Counter';
 import According from '../components/According';
-import { ToastContainer } from 'react-toastify';
 
 
 const LanPage = () => {
@@ -26,12 +25,11 @@ const LanPage = () => {
   const total = price * quantity
   const totalPrice = total.toLocaleString();
 
-  console.log(useSelector((state) => state.AUTH.isLogin))
-
+  
   return (
     <div className='flex justify-center items-center'>
-      <div className='flex gap-8 w-[95%] py-10'>
-        <div className='flex w-[49%] gap-4'>
+      <div className='flex gap-8 w-[90%] py-10'>
+        <div className='flex gap-4'>
 
           <div className='flex flex-col  gap-3'>
             {Product1.images.map((i) => {
@@ -49,7 +47,7 @@ const LanPage = () => {
 
 
 
-        <div className='flex w-[49%] '>
+        <div>
           <div className='flex flex-col gap-4 w-[70%]'>
 
             <div className='flex flex-col gap-4 border-b-2 border-[#484848] pb-3'>
@@ -70,7 +68,7 @@ const LanPage = () => {
                 {Product1.colors.map((i) => {
                   return (
                     <div key={i.idimac} className={`flex justify-center items-center cursor-pointer p-1 ${selectedColor === i.colorname ? 'border-2 border-black' : 'border-2 border-[#FBFBFB]'}`} onClick={() => handleColorClick(i.colorname)}>
-                      <img src={i.imgc} alt={i.alt} className='w-[50px] h-[50px]' />
+                      <img src={i.imgc} alt={selectedColor} className='w-[50px] h-[50px]' />
                     </div>
                   )
                 })}
